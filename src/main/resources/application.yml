@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: stripe-api-demo
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: stripe
+    password: stripe
+    url: jdbc:postgresql://localhost:5432/stripe_db
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8080
