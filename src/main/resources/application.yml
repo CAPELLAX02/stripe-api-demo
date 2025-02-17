@@ -18,3 +18,7 @@ spring:
 
 server:
   port: 8080
+
+stripe:
+  public-key: pk_test_51PkqaLH9opOR77k1BtGN1DVRUfujkaJ1DsF7IIbgVb9U3Tbfm2KK6wUqqZGbCFcCzyqT0N748tPEexaXdDsR1YQN00nL9T903d
+  secret-key: sk_test_51PkqaLH9opOR77k1n9SVX2wpXcVoNy1ujaxKWIAGHHRvWeT9CXGo3TqXIkuVtL0UcjF9rnrBe37m18eI7LgHTZ6m00BTYSmt8s
