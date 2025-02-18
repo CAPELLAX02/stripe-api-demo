@@ -4,6 +4,7 @@ import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,8 @@ public class StripeService {
     @Value("${stripe.secret-key}")
     private String stripeSecretKey;
 
-    public StripeService(@Value("${stripe.secret-key}") String stripeSecretKey) {
+    @PostConstruct
+    public void init() {
         Stripe.apiKey = stripeSecretKey;
     }
 
@@ -23,7 +25,7 @@ public class StripeService {
                 .build();
 
         var priceData = SessionCreateParams.LineItem.PriceData.builder()
-                .setCurrency(paymentRequest.currency())
+                .setCurrency(paymentRequest.currency() != null ? paymentRequest.currency() : "USD")
                 .setUnitAmount(paymentRequest.amount())
                 .setProductData(productData)
                 .build();
